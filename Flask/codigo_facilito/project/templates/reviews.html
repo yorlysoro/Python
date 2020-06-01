@@ -1,0 +1,46 @@
+<!--
+   reviews.html
+   
+   Copyright 2018 yorlysoro <yorlysoro@gmail.com>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+   
+   
+-->
+
+
+{% extends 'base/base.html' %}
+
+
+{% block title %} Review {% endblock %}
+
+
+{% block content %}
+	<div> class="container">
+		{% if comments %}
+			{% for comment in comments %}
+				<div class="row">
+					<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+						<hr>
+						<h2 class="section-heading">{{ comment.username }} </h2>
+						<h5> {{ date_format(comment.created_date) }} </h5>
+						<p>{{ comment.text }} </p>
+					</div>
+				</div>
+			{% endfor %}
+		{% endif %}
+	</div>
+{% endblock %}

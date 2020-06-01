@@ -1,0 +1,8 @@
+{% extends "parent.txt" %}
+	{# overwriting the block called template from parent.txt #}
+	{% block template %} child.txt {% endblock %}
+	
+	{#- overwriting the block called past from parent.txt #}
+	{% block past %}
+	You've bought an ebook recently.
+	{% endblock %}

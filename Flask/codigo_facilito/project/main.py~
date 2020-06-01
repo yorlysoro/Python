@@ -1,0 +1,84 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#  main.py
+#  
+#  Copyright 2018 yorlysoro <yorlysoro@gmail.com>
+#  
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#  
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#  
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#  MA 02110-1301, USA.
+#  
+#  
+from flask import Flask, render_template
+import form
+from flask import request
+from flask_wtf import CsrfProtect
+from flask import make_response
+from flask import session, redirect, url_for
+from flask import flash
+import json
+
+app = Flask(__name__)
+app.debug = True
+app.secret_key = 'my_secret_key'
+crsf = CsrfProtect(app)
+
+@app.errorhandler(404)
+def page_not_found(e):
+	return render_template('404.html'), 404
+@app.route('/', methods = ['GET', 'POST'])
+def index():
+	title = "Index"
+	if 'username' in session:
+		username = session['username']
+		print(username)
+	return render_template('index.html', title=title)
+
+@app.route('/login', methods = ['GET', 'POST'])
+def login():
+	login_form = form.LoginForm(request.form)
+	title = "Login"
+	if(request.method == 'POST' and login_form.validate()):
+		username = login_form.username.data
+		success_message = "Bienvenido {}".format(username)
+		session['username'] = login_form.username.data
+		flash(success_message)
+	return render_template('login.html', title = title, form = login_form)
+
+@app.route('/logout')
+def logout():
+	if 'username' in session:
+		session.pop('username')
+	return redirect(url_for('login'))
+	
+@app.route('/cookie')
+def cookie():
+	title = "Cookie"
+	response = make_response(render_template('cookie.html', title = title))
+	response.set_cookie('custome_cookie', 'Yorlys')
+	return response
+
+@app.route('/comment', methods = ['GET', 'POST'])
+def comment():
+	pass
+	
+@app.route('/ajax-login', methods = ['POST'])
+def ajax_login():
+	print(request.form)
+	username = request.form['username']
+	response = { 'status' : 200, 'username' : username, 'id': 1}
+	return json.dumps(response)
+if __name__ == '__main__':
+	app.run()

@@ -1,0 +1,24 @@
+class Complejo:
+	def __init__(self, parteReal, parteImaginaria):
+		self.r = parteReal
+		self.i = parteImaginaria
+		
+x = Complejo(3.0, -4.5)
+
+print (x.r, x.i)
+
+class Delreves:
+	"Iterador para recorrer una secuencia en orden inverso"
+	def __init__(self, data):
+		self.datos = datos
+		self.indice = len(datos)
+	def __inter__(self):
+		return self
+	def next(self):
+		if self.index == 0:
+			raise StopIteration
+		self.indice = self.inidice - 1
+		return self.data[self.indice]
+		
+for car in Delreves('magro'):
+	print car

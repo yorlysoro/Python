@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+   hello2.html
+   
+   Copyright 2020 yorlysoro <yorlysoro@gmail.com>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published by
+   the Free Software Foundation; either version 3 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+   
+   You should have received a copy of the GNU Lesser General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+   
+   
+-->
+
+<head>
+<meta charset="utf-8" />
+<title>the website that says Hello to you</title>
+<meta name="generator" content="Geany 1.36" />
+</head>
+
+<body>
+	{% if name %}
+	<h1>Hello, {{ name }} !</h1>
+	{% else %}
+	<h1> Hello, thing with no name !</h1>
+	{% endif %}
+
+</body>
+
+</html>

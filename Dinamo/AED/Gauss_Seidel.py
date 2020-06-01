@@ -1,0 +1,35 @@
+import random
+n = 10
+kmax = 50
+error = 1.0E-6
+a = list(i * 1.5 for i in range(1,n)), list(j * 2.5 for j in range(1,n))
+a = list(a)
+u = list(i * 2.3 for i in range(1,n))
+x = list(i * 3.6 for i in range(1,n))
+i, j, k, m = 0, 0, 0, 0
+maximo, suma, aproximado = 0.0, 0.0, 0.0
+
+k = 1
+while(k < kmax ) or (maximo > error):
+	maximo = 0.0
+	print("Numero de iteracion: ", k)
+	for i in range(0,2):
+		suma = 0.0
+		if i != 1:
+			m = i - 1
+			j = 1
+			while(j <= m):
+				suma = suma + a[i,j-1] * x[j]
+				j = j + 1
+		if i != n:
+			j = i + 1
+			while(j <= n):
+				suma = suma + a[i,j-1] * x[j]
+				j = j + 1
+		aproximado = (u[i]- suma) / a[i,j-1]
+		if abs(aproximado-x[i]) > maximo:
+			maximo = abs(aproximado-x[i])
+		x[i] = aproximado
+	k = k + 1
+print(a)
+			

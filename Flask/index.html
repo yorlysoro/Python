@@ -1,0 +1,7 @@
+{% from 'formfield.html' import input %}
+	{# use method='post' whenever sendign sensitive data over http #}
+	<form method='post' action='.' >
+	{{ input('name', type='text') }}
+	{{ input('passwd', type='password') }}
+	<input type='submit' value='Send'></input>
+	</form>

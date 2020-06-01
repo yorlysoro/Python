@@ -1,0 +1,2 @@
+You wanna hear a dirty joke?
+	{% include 'joke.txt' %}

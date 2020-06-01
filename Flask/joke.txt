@@ -1,0 +1,1 @@
+A boy fell in a mud puddle. {{ myvar }}

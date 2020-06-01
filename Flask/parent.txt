@@ -1,0 +1,10 @@
+{% block template %} parent.txt {% endblock %}
+	=========
+	I am a powerfull psychic and will tell you your past
+	
+	{#- "past" is the block identifier #}
+	{% block past %}
+	You had pimples by the age of 12.
+	{% endblock %}
+	
+	Tremble before my power!!!

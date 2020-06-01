@@ -1,0 +1,16 @@
+import apt
+import apt_pkg
+
+entrada = input('Introduzca el nombre del programa que desea instalar: ')
+cache = apt.Cache()
+pkg = cache[entrada]
+pkgiter = apt_pkg.Cache()[entrada]
+package = apt.package.Package(pkg , pkgiter)
+if package.is_installed:
+    print(entrada + ' is installed')
+else:
+    print(entrada + ' is not instaled')
+    package.mark_install
+    version = apt.package.Version(package.shortname, package.candidate)
+    print(version.uris)
+cache.commit()

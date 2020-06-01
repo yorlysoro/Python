@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+   layout.html
+   
+   Copyright 2020 yorlysoro <yorlysoro@gmail.com>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published by
+   the Free Software Foundation; either version 3 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+   
+   You should have received a copy of the GNU Lesser General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+   
+   
+-->
+
+<head>
+<meta charset="utf-8" />
+<title>Flask Web App</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+<meta name="generator" content="Geany 1.36" />
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<h1 class="logo"> Ardit's web app</h1>
+			<strong> <nav> 
+				<ul class="menu">
+					<li> <a href="{{ url_for('home')}}">Home</a></li>
+					<li> <a href="{{ url_for('about')}}">About</a></li>
+				</ul>
+			
+			</nav></strong>
+		
+		</div>
+	
+	</header>
+	<div class="container">
+		{% block content %}
+		{% endblock %}
+	</div>
+
+</body>
+
+</html>

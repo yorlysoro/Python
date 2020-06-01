@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+class Pila:
+	""""Representar una pila con operaciones de apilar, desapilar y verificar si esta vacia"""
+	def __init__(self):
+		"""Crea una pila vacia"""
+		self.items = []
+	def apilar(self, x):
+		"""Agrega el elemento x a la pila"""
+		self.items.append(x)
+		
+	def desapilar(self):
+		""" Devuelve el elemento tope y lo elimina de la pila
+		Si la pila esta vacia levanta una excepcion"""
+		try:
+			return self.items.pop()
+		except IndexError:
+			raise ValueError("La pila esta vacia")
+			
+	def es_vacia(self):
+		"""Devuelve True si la lista esta vacia, False si no"""
+		return self.items == []
+
+

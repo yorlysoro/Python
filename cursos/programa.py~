@@ -1,0 +1,57 @@
+#!/usr/bin/env python2.7
+
+print "hola mundo"
+
+
+#cadenas de textos
+
+print "hola \"mundo\""
+
+suma = 8 + 8
+
+print suma
+
+print "hola " + " mundo"
+
+#operacines aritmeticas
+
+print 5*2
+
+print 5+2-5*4/2%4
+
+print 5 > 2
+
+print 5 < 2
+
+print 5 == 2
+
+print 16/4*2
+
+print 16/(4*2)
+
+#variables
+
+var = "esta es una variable"
+
+print var
+
+numero1 = 3.14
+
+numero2 = 7
+
+resultado = numero1*numero2
+print "El resultad es ", resultado
+print "El resultado es %d" % resultado
+print "El resultado es %f" % resultado
+print "El resultado es %0.2f" % resultado
+
+#funciones
+
+def saludo(nombre):
+    print "hola"
+    print nombre
+print "Inicio del programa"
+
+saludo("yorlys")
+
+print "Termino del programa"
